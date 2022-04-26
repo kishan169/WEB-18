@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+}
+#navbar{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    font-size: x-large;
+    color: white;
+    background-color: blue;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+input{
+    padding: 8px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-left: 45%;
+}
+
+#investor{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
+}
+
+#investor>div{
+    text-align: center;
+}
+#investor>div>img:last-child{
+    height: 10%;
+}
