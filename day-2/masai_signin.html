@@ -65,7 +65,7 @@
     <input id = "password" type="password" placeholder = "Enter Your Password"><br>
 
    
-    <input type="submit">
+    <input type="submit" value = "Sign In">
 
    </form>
 
@@ -77,3 +77,40 @@
 </form>
 </body>
 </html>
+
+<script>
+
+    var arr = JSON.parse(localStorage.getItem("signupData"));
+    console.log(arr);
+
+    document.querySelector("#detail").addEventListener("submit",myLogin)
+
+    function myLogin(){
+        event.preventDefault();
+        var obj = {
+            email:detail.email.value,
+            pw:detail.password.value
+        }
+
+        if(obj==null){
+        alert("Please Create An Account");
+        window.location.href = "masai_SignUP.html"
+        }
+        else{
+
+        
+        arr.forEach(function(el){
+            if(obj.email==el.Email && obj.pw==el.Password){
+                alert("You are Successfully login.")
+            }else{
+                alert("Wrong Credentials! Please try Again")
+            }
+           
+        })
+
+        }
+        console.log(obj)
+    }
+
+    
+</script>

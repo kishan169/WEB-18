@@ -86,7 +86,7 @@
 
 <script>
 
-    var arr = []
+    var arr = JSON.parse(localStorage.getItem("signupData")) || []
     document.querySelector("#detail").addEventListener("submit", registerDetail)
 
     function registerDetail(){
