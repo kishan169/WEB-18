@@ -28,6 +28,9 @@
           margin: auto;
           margin-left: 70%;
       }
+      input{
+          margin-left: 70%;
+      }
     </style>
 </head>
 <body>
@@ -36,21 +39,31 @@
         <h1><a href = "womens.html">Women's Page</a></h1>
         <h1><a href = "cart.html">Go To Cart</a></h1>
       </div>
-    <div id = "cart">
-
-    </div>
+    
 
     <table id = "Price_table">
         <tr id = "first Row">
         <td>Total Price</td>
-        <td></td>
+        <td id = "tprice"></td>
         </tr>
+
 
         <tr id = "Second Row">
         <td>Discount Price</td>
-        <td></td>
+        <td id = "dprice"></td>
+        </tr>
+        <tr>
+            <form id = "offer">
+                <input id = "coupen" type="text"  placeholder = "Enter Coupen Code">
+                <input type= "submit">
+            </form>
+            
         </tr>
     </table>
+
+    <div id = "cart">
+
+    </div>
     
 </body>
 </html>
@@ -59,11 +72,12 @@
     var cartItem = JSON.parse(localStorage.getItem("cartItem"));
     console.log(cartItem);
 
-    displayData(cartItem)
+    // displayData(cartItem)
 
-    function displayData(data){
-        data.forEach(function(el,index){
+    
+        cartItem.forEach(function(el,index){
 
+            console.log(el.price);
             var box = document.createElement("div");
             
             var image = document.createElement("img");
@@ -79,13 +93,29 @@
             document.querySelector("#cart").append(box);
         })
         
-    }
 
-    function displayData(data){
-        data.reduce(function(el){
-            return sum + el.price;
-        })
-    }
+       var out= cartItem.reduce(function(sum,el){
+            return sum + Number(el.price);
+        },0)
+
+        console.log(out);
+        document.querySelector("#tprice").innerText = "Rs." + out;
+
+        document.querySelector("#offer").addEventListener("submit", OfferPage)
+
+        function OfferPage(){
+            event.preventDefault();
+            var code = document.querySelector("#coupen").value
+            
+            if(code=="Masai30" || code=="Kishan1995"){
+                var d_price = out*0.70;
+                document.querySelector("#dprice").innerText = "Rs. " + d_price;
+                alert("Congratulation You are getting 30% Discount ")
+            }
+            else{
+                alert("Your Code is not Working")
+            }
+        }
 
 
 </script>

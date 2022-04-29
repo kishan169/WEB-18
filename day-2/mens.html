@@ -74,8 +74,8 @@
       image_url:
         "https://content.shop4reebok.com/static/Product-EX4296/reebok_EX4296_1.jpg.plp",
       name: "MEN'S REEBOK RUNNING ROADMAP SHOES",
-      price: "$1170",
-      strikedoffprice: "$2599",
+      price: "1170",
+      strikedoffprice: "2599",
     },
     {
       image_url:
@@ -348,19 +348,6 @@
       console.log(cartdata);
       localStorage.setItem("cartItem",JSON.stringify(cartdata));
 
-          // cartdata.forEach(function(el,index){
-
-          //   var box = document.createElement("div");
-
-          //   var pro_name = document.createElement("p");
-          //   pro_name.innerText = el.name;
-
-          //   var pri = document.createElement("p")
-          //   pri.innerText = el.price;
-
-          //   box.append(pro_name,pri)
-          //   document.querySelector("#cart").append(box);
-          //   })
     })
 
     box.append(url,productname,pric,strike,cart)
