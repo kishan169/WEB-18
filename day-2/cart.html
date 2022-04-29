@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #navbar{
+        width: 60%;
+         margin: auto;
+         padding: 20px;
+        background-color: aqua;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+      }
+
+      #cart{
+          margin: auto;
+          width: 80%;
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+      }
+      #Price_table{
+          margin: auto;
+          margin-left: 70%;
+      }
+    </style>
+</head>
+<body>
+    <div id = "navbar">
+        <h1><a href = "mens.html">Men's Page</a></h1>
+        <h1><a href = "womens.html">Women's Page</a></h1>
+        <h1><a href = "cart.html">Go To Cart</a></h1>
+      </div>
+    <div id = "cart">
+
+    </div>
+
+    <table id = "Price_table">
+        <tr id = "first Row">
+        <td>Total Price</td>
+        <td></td>
+        </tr>
+
+        <tr id = "Second Row">
+        <td>Discount Price</td>
+        <td></td>
+        </tr>
+    </table>
+    
+</body>
+</html>
+<script>
+
+    var cartItem = JSON.parse(localStorage.getItem("cartItem"));
+    console.log(cartItem);
+
+    displayData(cartItem)
+
+    function displayData(data){
+        data.forEach(function(el,index){
+
+            var box = document.createElement("div");
+            
+            var image = document.createElement("img");
+            image.setAttribute("src",el.image_url)
+
+            var pro_name = document.createElement("p");
+            pro_name.innerText = el.name;
+
+            var pri = document.createElement("p")
+            pri.innerText = el.price;
+
+            box.append(image,pro_name,pri)
+            document.querySelector("#cart").append(box);
+        })
+        
+    }
+
+    function displayData(data){
+        data.reduce(function(el){
+            return sum + el.price;
+        })
+    }
+
+
+</script>
